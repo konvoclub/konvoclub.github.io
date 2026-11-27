@@ -74,14 +74,6 @@ em { font-style: italic; }
 /* Hero */
 .hero { padding: 7.5rem 0 3rem; text-align: center; }
 .hero-copy { max-width: 46rem; }
-.kicker {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--maroon);
-  margin-bottom: 1.25rem;
-}
 h1 {
   font-family: var(--serif);
   font-weight: 400;
@@ -91,7 +83,7 @@ h1 {
   margin-bottom: 1.5rem;
 }
 h1 em { color: var(--maroon); }
-.sub { font-size: 1.125rem; color: var(--muted); max-width: 30rem; margin: 0 auto 2rem; }
+.sub { text-wrap: balance; font-size: 1.125rem; color: var(--muted); max-width: 30rem; margin: 0 auto 2rem; }
 
 /* Fanned prints */
 .prints {
