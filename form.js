@@ -1,5 +1,5 @@
 // Paste the Apps Script web app URL here (see setup/SETUP.md)
-const ENDPOINT = 'APPS_SCRIPT_URL';
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzQsRxmw9cc2nP4BUyYPUcGYRqJB-Jke4zuMgk8l88c0T5VgQyWg6S2dRxm36jjctP2rw/exec';
 
 document.querySelectorAll('form[data-form]').forEach(form => {
   const status = form.querySelector('.form-status');
