@@ -56,6 +56,8 @@ document.querySelectorAll('form[data-form]').forEach(form => {
     for (const key of new Set(data.keys())) {
       body.set(key, data.getAll(key).filter(Boolean).join(', '));
     }
+    // Question order, so the sheet's columns follow the form
+    body.set('_order', [...new Set([...form.elements].map(el => el.name).filter(Boolean))].join('|'));
 
     const random = new Uint8Array(16);
     crypto.getRandomValues(random);
