@@ -154,28 +154,45 @@
 
       <fieldset>
         <legend>Availability</legend>
-        <div class="field" data-required-group="Campuses">
-          <span>Which campuses can you get to?</span>
+        <label class="field">
+          <span>When can you start?</span>
+          <input type="date" name="Available from" required>
+        </label>
+        <div class="field" data-required-group="Days you can work">
+          <span>Which days can you work?</span>
+          <small>Convos often fall on weekdays.</small>
           <div class="chips">
-            <label><input type="checkbox" name="Campuses" value="Sunway"><span>Sunway</span></label>
-            <label><input type="checkbox" name="Campuses" value="Taylor's"><span>Taylor's</span></label>
-            <label><input type="checkbox" name="Campuses" value="Others"><span>Others</span></label>
+            <label><input type="checkbox" name="Days" value="Mon"><span>Mon</span></label>
+            <label><input type="checkbox" name="Days" value="Tue"><span>Tue</span></label>
+            <label><input type="checkbox" name="Days" value="Wed"><span>Wed</span></label>
+            <label><input type="checkbox" name="Days" value="Thu"><span>Thu</span></label>
+            <label><input type="checkbox" name="Days" value="Fri"><span>Fri</span></label>
+            <label><input type="checkbox" name="Days" value="Sat"><span>Sat</span></label>
+            <label><input type="checkbox" name="Days" value="Sun"><span>Sun</span></label>
           </div>
         </div>
-        <div class="field" data-required-group="Convo seasons">
-          <span>Which convo seasons could you shoot?</span>
+        <div class="field" data-required-group="Times you can work">
+          <span>What times suit you?</span>
           <div class="chips">
-            <label><input type="checkbox" name="Seasons" value="Taylor's, end Jan 2027"><span>Taylor's, end Jan 2027</span></label>
-            <label><input type="checkbox" name="Seasons" value="Sunway, Feb 2027"><span>Sunway, around Feb 2027</span></label>
-            <label><input type="checkbox" name="Seasons" value="Not sure yet"><span>Not sure yet</span></label>
+            <label><input type="checkbox" name="Times" value="Morning"><span>Morning</span></label>
+            <label><input type="checkbox" name="Times" value="Afternoon"><span>Afternoon</span></label>
+            <label><input type="checkbox" name="Times" value="Evening"><span>Evening</span></label>
           </div>
         </div>
         <div class="field">
-          <span>Can you do weekday shoots? A lot of ceremonies are on weekdays.</span>
+          <span>How many shoots a month would you like?</span>
           <div class="chips">
-            <label><input type="radio" name="Weekdays" value="Yes" required><span>Yes</span></label>
-            <label><input type="radio" name="Weekdays" value="Some"><span>Some weekdays</span></label>
-            <label><input type="radio" name="Weekdays" value="Weekends only"><span>Weekends only</span></label>
+            <label><input type="radio" name="Shoots a month" value="1 to 2" required><span>1 to 2</span></label>
+            <label><input type="radio" name="Shoots a month" value="3 to 5"><span>3 to 5</span></label>
+            <label><input type="radio" name="Shoots a month" value="6 or more"><span>6 or more</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>How far will you travel for a shoot?</span>
+          <div class="chips">
+            <label><input type="radio" name="Travel" value="Near where I'm based" required><span>Near where I'm based</span></label>
+            <label><input type="radio" name="Travel" value="Anywhere in Klang Valley"><span>Anywhere in Klang Valley</span></label>
+            <label><input type="radio" name="Travel" value="Outside Klang Valley too"><span>Outside Klang Valley too</span></label>
           </div>
         </div>
         <label class="field">
