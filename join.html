@@ -126,28 +126,31 @@
 
       <fieldset>
         <legend>Delivery and rates</legend>
-        <div class="field">
-          <span>How long do you usually take to deliver edited photos?</span>
+        <div class="field" data-required-group="How you'd like to work">
+          <span>How would you like to work with us?</span>
           <div class="chips">
-            <label><input type="radio" name="Turnaround" value="Within 3 days" required><span>Within 3 days</span></label>
-            <label><input type="radio" name="Turnaround" value="4 to 7 days"><span>4 to 7 days</span></label>
-            <label><input type="radio" name="Turnaround" value="1 to 2 weeks"><span>1 to 2 weeks</span></label>
-            <label><input type="radio" name="Turnaround" value="Over 2 weeks"><span>Over 2 weeks</span></label>
+            <label><input type="checkbox" name="Work options" value="Shoot and edit"><span>Shoot and edit</span></label>
+            <label><input type="checkbox" name="Work options" value="Shoot only, hand over RAW files"><span>Shoot only, hand over RAW files</span></label>
           </div>
         </div>
         <label class="field">
-          <span>What do you usually charge for a 2-hour grad shoot?</span>
-          <small>Only we see this.</small>
-          <input type="text" name="Usual rate" required inputmode="numeric" placeholder="RM">
+          <span>What are your rates for a grad shoot?</span>
+          <small>For a 2-hour shoot, tell us your rate for each option you offer, what it includes, and any extra charges for travel, time or larger groups. Only we see this.</small>
+          <textarea name="Rates and inclusions" rows="4" required placeholder="e.g. Shoot and edit: RM... for ... edited photos. Shoot only: RM..."></textarea>
         </label>
         <div class="field">
-          <span>We pay a fixed amount per shoot once the gallery is delivered. Does that work for you?</span>
+          <span>Are your rates flexible?</span>
           <div class="chips">
-            <label><input type="radio" name="Fixed payout" value="Yes" required><span>Yes</span></label>
-            <label><input type="radio" name="Fixed payout" value="Depends on the amount"><span>Depends on the amount</span></label>
-            <label><input type="radio" name="Fixed payout" value="No"><span>No, only my own rate</span></label>
+            <label><input type="radio" name="Rates flexible" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="Rates flexible" value="Depends on the job"><span>Depends on the job</span></label>
+            <label><input type="radio" name="Rates flexible" value="No"><span>No</span></label>
           </div>
         </div>
+        <label class="field">
+          <span>How long do you usually take to deliver edited photos? <em>Optional</em></span>
+          <input type="text" name="Turnaround" placeholder="e.g. 1 to 2 weeks">
+        </label>
+        <p>We agree on the job details and payout before you accept. For shoot-only jobs, payment follows upload and checking of the RAW files. For shoot-and-edit jobs, payment follows delivery of the finished gallery.</p>
       </fieldset>
 
       <fieldset>
