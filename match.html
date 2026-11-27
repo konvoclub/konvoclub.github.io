@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get matched · Konvo Club</title>
+  <meta name="description" content="Tell us about your convo and we'll recommend a vetted photographer who fits.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body class="form-page">
+
+  <nav class="nav scrolled">
+    <div class="wrap nav-inner">
+      <a href="./" class="wordmark">Konvo <em>Club</em></a>
+      <a href="./" class="nav-back">Back</a>
+    </div>
+  </nav>
+
+  <main class="wrap form-wrap">
+    <h1 class="form-title">Get matched</h1>
+    <p class="form-intro">Takes about 2 minutes. We'll WhatsApp you a photographer recommendation, usually within 2 days. Nothing to pay until you've decided.</p>
+
+    <div class="form-done" hidden>
+      <h2>Got it, thanks.</h2>
+      <p>We'll WhatsApp you within 2 days with a photographer who fits. A small deposit locks your date once you're happy with them.</p>
+      <a href="./" class="btn">Back to Konvo Club</a>
+    </div>
+
+    <form data-form="grad" data-submit-label="Send" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend>You</legend>
+        <label class="field">
+          <span>Your name</span>
+          <input type="text" name="Name" required autocomplete="name">
+        </label>
+        <label class="field">
+          <span>WhatsApp number</span>
+          <input type="tel" name="WhatsApp" required autocomplete="tel" inputmode="tel" placeholder="012 345 6789" pattern="^\+?[0-9 \-]{9,15}$">
+        </label>
+        <label class="field">
+          <span>University</span>
+          <select name="University" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Sunway University</option>
+            <option>Taylor's University</option>
+            <option>Monash University Malaysia</option>
+            <option>UM</option>
+            <option>UKM</option>
+            <option>UiTM</option>
+            <option>UPM</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your convo</legend>
+        <div class="field-row">
+          <label class="field">
+            <span>Convo date</span>
+            <small>Not announced yet? Pick your best guess and tick the box.</small>
+            <input type="date" name="Convo date" required>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="Date confirmed" value="Not confirmed yet">
+            <span>Not confirmed yet</span>
+          </label>
+        </div>
+        <div class="field">
+          <span>When do you want photos?</span>
+          <div class="chips">
+            <label><input type="radio" name="When" value="Before the ceremony" required><span>Before the ceremony</span></label>
+            <label><input type="radio" name="When" value="After the ceremony"><span>After</span></label>
+            <label><input type="radio" name="When" value="Both"><span>Both</span></label>
+            <label><input type="radio" name="When" value="Another day on campus"><span>Another day on campus</span></label>
+            <label><input type="radio" name="When" value="Not sure"><span>Not sure</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>How many people in the photos?</span>
+          <div class="chips">
+            <label><input type="radio" name="Group size" value="Just me" required><span>Just me</span></label>
+            <label><input type="radio" name="Group size" value="2 to 4"><span>2 to 4</span></label>
+            <label><input type="radio" name="Group size" value="5 to 10"><span>5 to 10</span></label>
+            <label><input type="radio" name="Group size" value="More than 10"><span>More than 10</span></label>
+          </div>
+        </div>
+        <div class="field" data-required-group="Family language">
+          <span>What language is your family most comfortable in?</span>
+          <div class="chips">
+            <label><input type="checkbox" name="Family language" value="English"><span>English</span></label>
+            <label><input type="checkbox" name="Family language" value="Malay"><span>Malay</span></label>
+            <label><input type="checkbox" name="Family language" value="Mandarin"><span>Mandarin</span></label>
+            <label><input type="checkbox" name="Family language" value="Cantonese"><span>Cantonese</span></label>
+            <label><input type="checkbox" name="Family language" value="Tamil"><span>Tamil</span></label>
+            <label><input type="checkbox" name="Family language" value="Hokkien"><span>Hokkien</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your photos</legend>
+        <div class="field">
+          <span>Which look do you like?</span>
+          <div class="looks-pick">
+            <label><input type="radio" name="Look" value="Bright" required><img src="images/bright-2.jpg" alt="" loading="lazy"><span>Bright</span></label>
+            <label><input type="radio" name="Look" value="Moody"><img src="images/h4.jpg" alt="" loading="lazy"><span>Moody</span></label>
+            <label><input type="radio" name="Look" value="Candid"><img src="images/h2.jpg" alt="" loading="lazy"><span>Candid</span></label>
+          </div>
+          <div class="chips chips-tight">
+            <label><input type="radio" name="Look" value="Not sure"><span>Not sure, help me pick</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>Budget</span>
+          <div class="chips">
+            <label><input type="radio" name="Budget" value="Under RM250" required><span>Under RM250</span></label>
+            <label><input type="radio" name="Budget" value="RM250 to RM350"><span>RM250 to RM350</span></label>
+            <label><input type="radio" name="Budget" value="Above RM350"><span>Above RM350</span></label>
+            <label><input type="radio" name="Budget" value="Not sure"><span>Not sure</span></label>
+          </div>
+        </div>
+        <label class="field">
+          <span>Anything else we should know? <em>Optional</em></span>
+          <textarea name="Notes" rows="3" placeholder="Photos you like, a grandparent flying in, you hate posing…"></textarea>
+        </label>
+        <label class="field">
+          <span>How did you hear about us?</span>
+          <select name="Heard from" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Instagram</option>
+            <option>Threads</option>
+            <option>TikTok</option>
+            <option>A friend</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn">Send</button>
+      <p class="form-status" role="alert"></p>
+    </form>
+  </main>
+
+  <script src="form.js?v=1"></script>
+</body>
+</html>

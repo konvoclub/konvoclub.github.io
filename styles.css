@@ -197,6 +197,73 @@ h1 em { color: var(--maroon); }
 .footer { padding: 1.75rem 0; font-size: 0.8rem; color: var(--muted); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
 
+/* Form pages */
+.nav-back { font-size: 0.9rem; font-weight: 600; text-decoration: none; color: var(--muted); }
+.nav-back:hover { color: var(--ink); }
+.form-wrap { max-width: 40rem; padding-top: 7rem; padding-bottom: 5rem; }
+.form-title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.75rem, 7vw, 4rem); line-height: 1; margin-bottom: 1rem; }
+.form-intro { color: var(--muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.form-done { padding: 2rem; background: var(--paper-2); border-radius: 0.5rem; }
+.form-done h2 { margin-bottom: 0.75rem; }
+.form-done p { color: var(--muted); margin-bottom: 1.5rem; }
+.form-page form fieldset { border: 0; margin: 0 0 2.5rem; padding: 0; display: grid; gap: 1.5rem; }
+.form-page legend { font-family: var(--serif); font-size: 1.75rem; margin-bottom: 1.25rem; padding: 0; width: 100%; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+.field { display: grid; gap: 0.5rem; }
+.field > span { font-weight: 600; font-size: 0.98rem; }
+.field > span em { font-weight: 400; color: var(--muted); font-style: normal; font-size: 0.85rem; margin-left: 0.25rem; }
+.field small { color: var(--muted); font-size: 0.85rem; margin-top: -0.25rem; }
+.field input[type="text"], .field input[type="tel"], .field input[type="url"], .field input[type="date"], .field select, .field textarea {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fffdf9;
+  border: 1px solid rgba(26, 23, 20, 0.22);
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.9rem;
+  width: 100%;
+  min-height: 3rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field select { background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 1.3rem, calc(100% - 0.8rem) 1.3rem; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.25rem; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--maroon); outline-offset: 1px; border-color: transparent; }
+.field textarea { resize: vertical; }
+.field-row { display: grid; gap: 0.75rem; }
+.check { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; color: var(--muted); cursor: pointer; }
+.check input { width: 1.1rem; height: 1.1rem; accent-color: var(--maroon); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chips label { position: relative; cursor: pointer; }
+.chips input, .looks-pick input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chips span {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(26, 23, 20, 0.22);
+  border-radius: 999px;
+  background: #fffdf9;
+  font-size: 0.92rem;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.chips input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chips input:focus-visible + span, .looks-pick input:focus-visible ~ img { outline: 2px solid var(--maroon); outline-offset: 2px; }
+.chips-tight { margin-top: 0.25rem; }
+
+.looks-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.looks-pick label { position: relative; cursor: pointer; display: grid; gap: 0.4rem; text-align: center; font-size: 0.92rem; font-weight: 600; }
+.looks-pick img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 0.4rem; border: 3px solid transparent; transition: border-color 0.15s, opacity 0.15s; }
+.looks-pick input:checked ~ img { border-color: var(--maroon); }
+.looks-pick input:checked ~ span { color: var(--maroon); }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-page .btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: 1rem; }
+.form-page .btn:disabled { opacity: 0.6; cursor: default; }
+.form-status { margin-top: 1rem; color: var(--maroon); font-weight: 600; min-height: 1.5rem; }
+
+@media (min-width: 640px) {
+  .field-row { grid-template-columns: 1fr auto; align-items: end; }
+  .field-row .check { padding-bottom: 0.85rem; }
+}
+
 @media (min-width: 768px) {
   .wrap { padding: 0 2rem; }
   .hero { padding-top: 9rem; }

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the Dean's Lens · Konvo Club</title>
+  <meta name="description" content="Photographers in the Klang Valley: apply to shoot graduations with Konvo Club.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body class="form-page">
+
+  <nav class="nav scrolled">
+    <div class="wrap nav-inner">
+      <a href="./" class="wordmark">Konvo <em>Club</em></a>
+      <a href="./" class="nav-back">Back</a>
+    </div>
+  </nav>
+
+  <main class="wrap form-wrap">
+    <h1 class="form-title">Join the Dean's Lens</h1>
+    <p class="form-intro">We find the grads, take payment and handle the pricing chats; you shoot. It's free to join. We can't promise jobs yet, but if you pass screening and grads book, you're first in line. Have a link to one full delivered gallery ready.</p>
+
+    <div class="form-done" hidden>
+      <h2>Thanks for applying.</h2>
+      <p>We'll go through your gallery and get back to you on WhatsApp within a week.</p>
+      <a href="./" class="btn">Back to Konvo Club</a>
+    </div>
+
+    <form data-form="photographer" data-submit-label="Send application" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend>You</legend>
+        <label class="field">
+          <span>Full name</span>
+          <input type="text" name="Name" required autocomplete="name">
+        </label>
+        <label class="field">
+          <span>WhatsApp number</span>
+          <input type="tel" name="WhatsApp" required autocomplete="tel" inputmode="tel" placeholder="012 345 6789" pattern="^\+?[0-9 \-]{9,15}$">
+        </label>
+        <label class="field">
+          <span>Instagram</span>
+          <input type="text" name="Instagram" required placeholder="@yourname">
+        </label>
+        <label class="field">
+          <span>Where are you based?</span>
+          <input type="text" name="Based in" required placeholder="e.g. Subang Jaya">
+        </label>
+        <div class="field" data-required-group="Languages">
+          <span>Languages you can chat with a family in</span>
+          <div class="chips">
+            <label><input type="checkbox" name="Languages" value="English"><span>English</span></label>
+            <label><input type="checkbox" name="Languages" value="Malay"><span>Malay</span></label>
+            <label><input type="checkbox" name="Languages" value="Mandarin"><span>Mandarin</span></label>
+            <label><input type="checkbox" name="Languages" value="Cantonese"><span>Cantonese</span></label>
+            <label><input type="checkbox" name="Languages" value="Tamil"><span>Tamil</span></label>
+            <label><input type="checkbox" name="Languages" value="Hokkien"><span>Hokkien</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your work</legend>
+        <div class="field" data-required-group="What you've shot">
+          <span>What have you shot before?</span>
+          <div class="chips">
+            <label><input type="checkbox" name="Shot before" value="Graduations"><span>Graduations</span></label>
+            <label><input type="checkbox" name="Shot before" value="Portraits"><span>Portraits</span></label>
+            <label><input type="checkbox" name="Shot before" value="Events"><span>Events</span></label>
+            <label><input type="checkbox" name="Shot before" value="Weddings"><span>Weddings</span></label>
+            <label><input type="checkbox" name="Shot before" value="Family"><span>Family</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>How many grad shoots have you done?</span>
+          <div class="chips">
+            <label><input type="radio" name="Grad shoots" value="None yet" required><span>None yet</span></label>
+            <label><input type="radio" name="Grad shoots" value="1 to 5"><span>1 to 5</span></label>
+            <label><input type="radio" name="Grad shoots" value="6 to 20"><span>6 to 20</span></label>
+            <label><input type="radio" name="Grad shoots" value="More than 20"><span>More than 20</span></label>
+          </div>
+        </div>
+        <label class="field">
+          <span>Link to one full gallery you delivered to a client</span>
+          <small>The whole set they received, not your best 10. Make sure anyone with the link can view it.</small>
+          <input type="url" name="Full gallery" required placeholder="https://">
+        </label>
+        <label class="field">
+          <span>Anything else we should look at? <em>Optional</em></span>
+          <input type="text" name="Other links" placeholder="Portfolio, a second gallery, a reel">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Gear</legend>
+        <label class="field">
+          <span>Camera body</span>
+          <input type="text" name="Body" required placeholder="e.g. Sony A7 III">
+        </label>
+        <label class="field">
+          <span>Lenses you'd bring</span>
+          <input type="text" name="Lenses" required placeholder="e.g. 24-70mm f/2.8, 85mm f/1.8">
+        </label>
+        <div class="field">
+          <span>Do you bring a spare battery and memory card to every shoot?</span>
+          <div class="chips">
+            <label><input type="radio" name="Spares" value="Both" required><span>Yes, both</span></label>
+            <label><input type="radio" name="Spares" value="Battery only"><span>Battery only</span></label>
+            <label><input type="radio" name="Spares" value="Card only"><span>Card only</span></label>
+            <label><input type="radio" name="Spares" value="Not usually"><span>Not usually</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>Flash or reflector for harsh midday sun?</span>
+          <div class="chips">
+            <label><input type="radio" name="Flash or reflector" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="Flash or reflector" value="No"><span>No</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Delivery and rates</legend>
+        <div class="field">
+          <span>How long do you usually take to deliver edited photos?</span>
+          <div class="chips">
+            <label><input type="radio" name="Turnaround" value="Within 3 days" required><span>Within 3 days</span></label>
+            <label><input type="radio" name="Turnaround" value="4 to 7 days"><span>4 to 7 days</span></label>
+            <label><input type="radio" name="Turnaround" value="1 to 2 weeks"><span>1 to 2 weeks</span></label>
+            <label><input type="radio" name="Turnaround" value="Over 2 weeks"><span>Over 2 weeks</span></label>
+          </div>
+        </div>
+        <label class="field">
+          <span>What do you usually charge for a 2-hour grad shoot?</span>
+          <small>Only we see this.</small>
+          <input type="text" name="Usual rate" required inputmode="numeric" placeholder="RM">
+        </label>
+        <div class="field">
+          <span>We pay a fixed amount per shoot once the gallery is delivered. Does that work for you?</span>
+          <div class="chips">
+            <label><input type="radio" name="Fixed payout" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="Fixed payout" value="Depends on the amount"><span>Depends on the amount</span></label>
+            <label><input type="radio" name="Fixed payout" value="No"><span>No, only my own rate</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Availability</legend>
+        <div class="field" data-required-group="Campuses">
+          <span>Which campuses can you get to?</span>
+          <div class="chips">
+            <label><input type="checkbox" name="Campuses" value="Anywhere in Klang Valley"><span>Anywhere in Klang Valley</span></label>
+            <label><input type="checkbox" name="Campuses" value="Sunway / Monash"><span>Sunway / Monash</span></label>
+            <label><input type="checkbox" name="Campuses" value="Taylor's"><span>Taylor's</span></label>
+            <label><input type="checkbox" name="Campuses" value="UM"><span>UM</span></label>
+            <label><input type="checkbox" name="Campuses" value="UKM"><span>UKM</span></label>
+            <label><input type="checkbox" name="Campuses" value="UiTM Shah Alam"><span>UiTM Shah Alam</span></label>
+            <label><input type="checkbox" name="Campuses" value="UPM"><span>UPM</span></label>
+          </div>
+        </div>
+        <div class="field" data-required-group="Convo seasons">
+          <span>Which convo seasons could you shoot?</span>
+          <div class="chips">
+            <label><input type="checkbox" name="Seasons" value="Taylor's, end Jan 2027"><span>Taylor's, end Jan 2027</span></label>
+            <label><input type="checkbox" name="Seasons" value="Sunway, Feb 2027"><span>Sunway, around Feb 2027</span></label>
+            <label><input type="checkbox" name="Seasons" value="Monash, Apr 2027"><span>Monash, around Apr 2027</span></label>
+            <label><input type="checkbox" name="Seasons" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>Can you do weekday shoots? A lot of ceremonies are on weekdays.</span>
+          <div class="chips">
+            <label><input type="radio" name="Weekdays" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="Weekdays" value="Some"><span>Some weekdays</span></label>
+            <label><input type="radio" name="Weekdays" value="Weekends only"><span>Weekends only</span></label>
+          </div>
+        </div>
+        <label class="field">
+          <span>The grad's aunty wants 15 more group photos and you're out of time. What do you do?</span>
+          <small>No right answer. We just want to hear how you'd handle it.</small>
+          <textarea name="Aunty question" rows="3" required></textarea>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn">Send application</button>
+      <p class="form-status" role="alert"></p>
+    </form>
+  </main>
+
+  <script src="form.js?v=1"></script>
+</body>
+</html>
