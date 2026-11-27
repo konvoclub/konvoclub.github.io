@@ -206,6 +206,36 @@ h1 em { color: var(--maroon); }
 .form-done { padding: 2rem; background: var(--paper-2); border-radius: 0.5rem; }
 .form-done h2 { margin-bottom: 0.75rem; }
 .form-done p { color: var(--muted); margin-bottom: 1.5rem; }
+.finding { text-align: center; padding: 2.5rem 1.5rem; }
+.seal-small { width: 7rem; margin: 0 auto 1.5rem; }
+.finding .seal-spin { animation-duration: 8s; }
+.finding-steps { list-style: none; margin: 0 auto 1.5rem; padding: 0; display: grid; gap: 0.6rem; width: fit-content; text-align: left; }
+.finding-steps li { position: relative; padding-left: 1.9rem; opacity: 0; animation: step-in 0.4s ease forwards; }
+.finding-steps li:nth-child(1) { animation-delay: 0.4s; }
+.finding-steps li:nth-child(2) { animation-delay: 1.2s; }
+.finding-steps li:nth-child(3) { animation-delay: 2s; }
+.finding-steps li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.4rem;
+  width: 0.85rem;
+  height: 0.42rem;
+  border-left: 2px solid var(--maroon);
+  border-bottom: 2px solid var(--maroon);
+  transform: rotate(-45deg);
+}
+.finding-steps li:last-child::before {
+  top: 0.3rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid var(--line);
+  border-top-color: var(--maroon);
+  border-radius: 50%;
+  transform: none;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes step-in { from { opacity: 0; transform: translateY(0.4rem); } to { opacity: 1; transform: none; } }
 .form-page form fieldset { border: 0; margin: 0 0 2.5rem; padding: 0; display: grid; gap: 1.5rem; }
 .form-page legend { font-family: var(--serif); font-size: 1.75rem; margin-bottom: 1.25rem; padding: 0; width: 100%; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
 .field { display: grid; gap: 0.5rem; }
@@ -278,6 +308,7 @@ h1 em { color: var(--maroon); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .seal-spin { animation: none; }
+  .finding-steps li, .finding-steps li:last-child::before { animation: none; opacity: 1; }
   .gallery img { transition: none; }
   .print, .btn { transition: none; }
 }

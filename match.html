@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body class="form-page">
 
@@ -22,12 +22,28 @@
 
   <main class="wrap form-wrap">
     <h1 class="form-title">Get matched</h1>
-    <p class="form-intro">Takes about 2 minutes. We'll WhatsApp you a suggested photographer's work and package price, usually within 2 days. Book through us when you're ready.</p>
+    <p class="form-intro">Takes about 2 minutes. We'll WhatsApp you sample photos and a price within 2 days.</p>
 
-    <div class="form-done" hidden>
-      <h2>Got it, thanks.</h2>
-      <p>We'll WhatsApp you within 2 days with a photographer's work and package price. When you're ready, book through us with a small deposit.</p>
-      <a href="./" class="btn">Back to Konvo Club</a>
+    <div class="form-done finding" hidden>
+      <div class="seal seal-small" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="ring" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <circle cx="100" cy="100" r="96" class="seal-bg"/>
+          <circle cx="100" cy="100" r="86" class="seal-line"/>
+          <circle cx="100" cy="100" r="60" class="seal-line"/>
+          <g class="seal-spin"><text class="seal-ring"><textPath href="#ring" textLength="462">KONVO CLUB · VETTED PHOTOGRAPHERS · KONVO CLUB · VETTED PHOTOGRAPHERS ·</textPath></text></g>
+          <text x="100" y="97" class="seal-big">Dean's</text>
+          <text x="100" y="125" class="seal-big">Lens</text>
+        </svg>
+      </div>
+      <h2>Finding your photographer…</h2>
+      <ul class="finding-steps">
+        <li>Your shoot date and campus</li>
+        <li>The look you like</li>
+        <li>Checking who's free on your date</li>
+      </ul>
+      <p>We'll WhatsApp you sample photos and a price within 2 days. Can't wait? Message us and we'll get started.</p>
+      <a class="btn" target="_blank" rel="noopener" data-whatsapp="60124065559" data-whatsapp-text="Hi Konvo Club! I'm {Name} from {University}. I just filled in the form for a shoot on {Shoot date}.">Message us on WhatsApp</a>
     </div>
 
     <form data-form="grad" data-submit-label="Send" novalidate>
@@ -108,6 +124,16 @@
             <label><input type="radio" name="Look" value="Not sure"><span>Not sure, help me pick</span></label>
           </div>
         </div>
+        <label class="field">
+          <span>Got photos you like? Share a link <em>Optional</em></span>
+          <small>Pinterest, Instagram, a friend's convo album, anything.</small>
+          <input type="text" name="Sample photos link" inputmode="url" placeholder="Paste a link">
+        </label>
+        <label class="field">
+          <span>Or upload them <em>Optional</em></span>
+          <small>Screenshots are fine. Up to 10 MB in total.</small>
+          <input type="file" name="Sample photos upload" accept="image/*" multiple data-upload="Sample photos file">
+        </label>
         <div class="field">
           <span>Budget</span>
           <div class="chips">
@@ -119,7 +145,7 @@
         </div>
         <label class="field">
           <span>Anything else we should know? <em>Optional</em></span>
-          <textarea name="Notes" rows="3" placeholder="Photos you like, a grandparent flying in, you hate posing…"></textarea>
+          <textarea name="Notes" rows="3" placeholder="A grandparent flying in, you hate posing…"></textarea>
         </label>
         <label class="field">
           <span>How did you hear about us?</span>
@@ -139,6 +165,6 @@
     </form>
   </main>
 
-  <script src="form.js?v=5"></script>
+  <script src="form.js?v=7"></script>
 </body>
 </html>

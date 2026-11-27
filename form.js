@@ -26,6 +26,13 @@ function checkReceipt(id) {
   });
 }
 
+// "2026-12-18" -> "18 Dec 2026"; other answers as typed
+function readable(value) {
+  if (!value || value instanceof File) return '';
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  return new Date(`${value}T00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
 function portfolioLink(form) {
   return form.querySelector('input[name="Portfolio"]')?.value.trim();
 }
@@ -54,13 +61,15 @@ document.querySelectorAll('form[data-form]').forEach(form => {
       return;
     }
 
-    const portfolioFile = form.querySelector('input[name="Portfolio upload"]')?.files[0];
-    if (form.dataset.form === 'photographer' && !portfolioLink(form) && !portfolioFile) {
+    // Files from every upload field; data-upload names the sheet column for their Drive links
+    const uploads = [...form.querySelectorAll('input[type="file"][data-upload]')]
+      .flatMap(input => [...input.files].map(file => ({ file, field: input.dataset.upload })));
+    if (form.dataset.form === 'photographer' && !portfolioLink(form) && !uploads.length) {
       status.textContent = 'Please share a portfolio link or upload a file.';
       return;
     }
-    if (portfolioFile && portfolioFile.size > 10 * 1024 * 1024) {
-      status.textContent = 'Please choose a file no larger than 10 MB.';
+    if (uploads.reduce((total, { file }) => total + file.size, 0) > 10 * 1024 * 1024) {
+      status.textContent = 'Please keep uploads to 10 MB in total.';
       return;
     }
 
@@ -68,10 +77,10 @@ document.querySelectorAll('form[data-form]').forEach(form => {
     const data = new FormData(form);
     const body = new URLSearchParams({ form: form.dataset.form });
     for (const key of new Set(data.keys())) {
-      if (key !== 'Portfolio upload') body.set(key, data.getAll(key).filter(Boolean).join(', '));
+      if (!(data.get(key) instanceof File)) body.set(key, data.getAll(key).filter(Boolean).join(', '));
     }
     // Question order, so the sheet's columns follow the form
-    body.set('_order', [...new Set([...form.elements].map(el => el.name).filter(Boolean))].join('|'));
+    body.set('_order', [...new Set([...form.elements].map(el => el.dataset.upload || el.name).filter(Boolean))].join('|'));
 
     const random = new Uint8Array(16);
     crypto.getRandomValues(random);
@@ -81,15 +90,16 @@ document.querySelectorAll('form[data-form]').forEach(form => {
     button.disabled = true;
     button.textContent = 'Sending…';
     try {
-      if (portfolioFile) {
-        const bytes = new Uint8Array(await portfolioFile.arrayBuffer());
+      for (const [i, { file, field }] of uploads.entries()) {
+        const bytes = new Uint8Array(await file.arrayBuffer());
         let binary = '';
-        for (let i = 0; i < bytes.length; i += 32768) {
-          binary += String.fromCharCode(...bytes.subarray(i, i + 32768));
+        for (let j = 0; j < bytes.length; j += 32768) {
+          binary += String.fromCharCode(...bytes.subarray(j, j + 32768));
         }
-        body.set('_portfolioFile', btoa(binary));
-        body.set('_portfolioName', portfolioFile.name);
-        body.set('_portfolioType', portfolioFile.type || 'application/octet-stream');
+        body.set(`_upload${i}`, btoa(binary));
+        body.set(`_uploadName${i}`, file.name);
+        body.set(`_uploadType${i}`, file.type || 'application/octet-stream');
+        body.set(`_uploadField${i}`, field);
       }
       await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body });
       if (!(await checkReceipt(requestId))) {
@@ -97,6 +107,12 @@ document.querySelectorAll('form[data-form]').forEach(form => {
         return;
       }
       form.hidden = true;
+      document.querySelectorAll('.form-intro').forEach(intro => { intro.hidden = true; });
+      // WhatsApp button with a message filled in from the form, e.g. {Name} -> "Aisyah"
+      for (const link of document.querySelectorAll('[data-whatsapp]')) {
+        const text = link.dataset.whatsappText.replace(/\{([^}]+)\}/g, (_, key) => readable(data.get(key)));
+        link.href = `https://wa.me/${link.dataset.whatsapp}?text=${encodeURIComponent(text)}`;
+      }
       document.querySelector('.form-done').hidden = false;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
