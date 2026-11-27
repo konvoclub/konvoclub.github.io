@@ -68,7 +68,7 @@
           </label>
         </div>
         <div class="field">
-          <span>When do you want photos?</span>
+          <span>When do you want the shoot?</span>
           <div class="chips">
             <label><input type="radio" name="When" value="Before the ceremony" required><span>Before the ceremony</span></label>
             <label><input type="radio" name="When" value="After the ceremony"><span>After</span></label>
@@ -77,13 +77,12 @@
             <label><input type="radio" name="When" value="Not sure"><span>Not sure</span></label>
           </div>
         </div>
-        <div class="field">
-          <span>How many people in the photos?</span>
+        <div class="field" data-required-group="Who's in the photos">
+          <span>Who's in the photos? <em>Pick all that apply</em></span>
           <div class="chips">
-            <label><input type="radio" name="Group size" value="Just me" required><span>Just me</span></label>
-            <label><input type="radio" name="Group size" value="2 to 4"><span>2 to 4</span></label>
-            <label><input type="radio" name="Group size" value="5 to 10"><span>5 to 10</span></label>
-            <label><input type="radio" name="Group size" value="More than 10"><span>More than 10</span></label>
+            <label><input type="checkbox" name="In the photos" value="Just me"><span>Just me</span></label>
+            <label><input type="checkbox" name="In the photos" value="Friends and family"><span>Friends and family</span></label>
+            <label><input type="checkbox" name="In the photos" value="Another graduate"><span>Another graduate</span></label>
           </div>
         </div>
         <div class="field" data-required-group="Family language">
@@ -92,9 +91,6 @@
             <label><input type="checkbox" name="Family language" value="English"><span>English</span></label>
             <label><input type="checkbox" name="Family language" value="Malay"><span>Malay</span></label>
             <label><input type="checkbox" name="Family language" value="Mandarin"><span>Mandarin</span></label>
-            <label><input type="checkbox" name="Family language" value="Cantonese"><span>Cantonese</span></label>
-            <label><input type="checkbox" name="Family language" value="Tamil"><span>Tamil</span></label>
-            <label><input type="checkbox" name="Family language" value="Hokkien"><span>Hokkien</span></label>
           </div>
         </div>
       </fieldset>
