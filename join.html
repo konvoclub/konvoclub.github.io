@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>html { scroll-behavior: auto !important; }</style>
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+  </script>
   <title>Join the Dean's Lens · Konvo Club</title>
   <meta name="description" content="Photographers in the Klang Valley: apply to shoot graduations with Konvo Club.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
