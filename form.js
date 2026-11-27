@@ -19,6 +19,8 @@ function checkReceipt(id) {
     pendingReceipts.set(id, finish);
     timer = setTimeout(() => finish(false), 5000);
     script.onerror = () => finish(false);
+    // No cookies: visitors signed into several Google accounts otherwise get an error page
+    script.crossOrigin = 'anonymous';
     script.src = `${ENDPOINT}?id=${encodeURIComponent(id)}`;
     document.head.appendChild(script);
   });
