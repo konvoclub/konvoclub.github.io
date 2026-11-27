@@ -26,6 +26,10 @@ function checkReceipt(id) {
   });
 }
 
+function portfolioLink(form) {
+  return form.querySelector('input[name="Portfolio"]')?.value.trim();
+}
+
 document.querySelectorAll('form[data-form]').forEach(form => {
   const status = form.querySelector('.form-status');
   const button = form.querySelector('button[type="submit"]');
@@ -50,11 +54,21 @@ document.querySelectorAll('form[data-form]').forEach(form => {
       return;
     }
 
+    const portfolioFile = form.querySelector('input[name="Portfolio upload"]')?.files[0];
+    if (form.dataset.form === 'photographer' && !portfolioLink(form) && !portfolioFile) {
+      status.textContent = 'Please share a portfolio link or upload a file.';
+      return;
+    }
+    if (portfolioFile && portfolioFile.size > 10 * 1024 * 1024) {
+      status.textContent = 'Please choose a file no larger than 10 MB.';
+      return;
+    }
+
     // Join multi-select answers into one cell, e.g. "English, Mandarin"
     const data = new FormData(form);
     const body = new URLSearchParams({ form: form.dataset.form });
     for (const key of new Set(data.keys())) {
-      body.set(key, data.getAll(key).filter(Boolean).join(', '));
+      if (key !== 'Portfolio upload') body.set(key, data.getAll(key).filter(Boolean).join(', '));
     }
     // Question order, so the sheet's columns follow the form
     body.set('_order', [...new Set([...form.elements].map(el => el.name).filter(Boolean))].join('|'));
@@ -67,6 +81,16 @@ document.querySelectorAll('form[data-form]').forEach(form => {
     button.disabled = true;
     button.textContent = 'Sending…';
     try {
+      if (portfolioFile) {
+        const bytes = new Uint8Array(await portfolioFile.arrayBuffer());
+        let binary = '';
+        for (let i = 0; i < bytes.length; i += 32768) {
+          binary += String.fromCharCode(...bytes.subarray(i, i + 32768));
+        }
+        body.set('_portfolioFile', btoa(binary));
+        body.set('_portfolioName', portfolioFile.name);
+        body.set('_portfolioType', portfolioFile.type || 'application/octet-stream');
+      }
       await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body });
       if (!(await checkReceipt(requestId))) {
         status.textContent = "We couldn't confirm your submission. Please contact us before sending it again.";

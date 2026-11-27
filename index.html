@@ -87,7 +87,7 @@
         <h2>Every photographer is on the Dean's Lens.</h2>
         <p class="lens-sub">It's our list of photographers who've passed our checks. Before anyone gets on it, we look at:</p>
         <ul class="checks">
-          <li>A full set of photos they delivered to a real client, not just their best shots</li>
+          <li>Their portfolio, client work or practice shoots</li>
           <li>Their gear, including spare batteries and memory cards</li>
           <li>Whether they deliver on time</li>
           <li>How they handle families on the day</li>
@@ -129,6 +129,7 @@
       <h2>Graduating soon?</h2>
       <a href="match.html" class="btn btn-light">Get matched</a>
       <p class="join">Photographer? <a href="join.html">Apply to join the Dean's Lens</a></p>
+      <p class="join" data-photographer-count hidden></p>
     </div>
   </section>
 
@@ -139,6 +140,7 @@
     </div>
   </footer>
 
+  <script src="photographer-count.js?v=1" defer></script>
   <script>
     const nav = document.getElementById('nav');
     const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);

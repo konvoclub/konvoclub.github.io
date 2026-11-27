@@ -22,11 +22,12 @@
 
   <main class="wrap form-wrap">
     <h1 class="form-title">Join the Dean's Lens</h1>
-    <p class="form-intro">We find the grads, take payment and handle the pricing chats; you shoot. It's free to join. We can't promise jobs yet, but if you pass screening and grads book, you're first in line. Have a link to one full delivered gallery ready.</p>
+    <p class="form-intro" data-photographer-count hidden></p>
+    <p class="form-intro">We find the grads, take payment and handle the pricing chats; you shoot. It's free to join. We can't promise jobs yet, but if you pass screening and grads book, you're first in line. Have a portfolio link or file ready; practice shoots count if you're just starting out.</p>
 
     <div class="form-done" hidden>
       <h2>Thanks for applying.</h2>
-      <p>We'll go through your gallery and get back to you on WhatsApp within a week.</p>
+      <p>We'll go through your work and get back to you on WhatsApp within a week.</p>
       <a href="./" class="btn">Back to Konvo Club</a>
     </div>
 
@@ -86,9 +87,14 @@
           </div>
         </div>
         <label class="field">
-          <span>Link to one full gallery you delivered to a client</span>
-          <small>The whole set they received, not your best 10. Make sure anyone with the link can view it.</small>
-          <input type="url" name="Full gallery" required placeholder="https://">
+          <span>Link to your photography <em>Optional if you upload a file</em></span>
+          <small>Share any accessible link, such as Instagram, a website or a Google Drive folder.</small>
+          <input type="url" name="Portfolio" placeholder="https://">
+        </label>
+        <label class="field">
+          <span>Or upload your portfolio <em>Optional if you share a link</em></span>
+          <small>Any file type, up to 10 MB. Include client work or practice shoots.</small>
+          <input type="file" name="Portfolio upload">
         </label>
         <label class="field">
           <span>Anything else we should look at? <em>Optional</em></span>
@@ -196,6 +202,7 @@
     </form>
   </main>
 
-  <script src="form.js?v=4"></script>
+  <script src="photographer-count.js?v=1" defer></script>
+  <script src="form.js?v=5"></script>
 </body>
 </html>
